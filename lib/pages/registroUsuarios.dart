@@ -9,7 +9,7 @@ class AddData extends StatefulWidget {
 class _AddDataState extends State<AddData> {
   TextEditingController controllerUsername = new TextEditingController();
   TextEditingController controllerPassword = new TextEditingController();
-  TextEditingController controllerNivel = new TextEditingController();
+  //TextEditingController controllerNivel = new TextEditingController();
 
   var _formKey = GlobalKey<FormState>();
 
@@ -19,9 +19,13 @@ class _AddDataState extends State<AddData> {
     http.post(url, body: {
       "username": controllerUsername.text,
       "password": controllerPassword.text,
-      "nivel": controllerNivel.text
+      "nivel": _mySelection.toString(), //aqui traemos el DropdownMenuItem lo llamamos _mySelection este es como el controller
+      //"nivel": controllerNivel.text
     });
   }
+  
+  String _mySelection;
+  List<Map> _myJson = [{"id":0,"name":"ventas"},{"id":1,"name":"admin"}];
 
   @override
   Widget build(BuildContext context) {
@@ -61,21 +65,45 @@ class _AddDataState extends State<AddData> {
                       ),
                     ),
                   ),
-                  new ListTile(
-                    leading: const Icon(Icons.settings_input_component, color: Colors.black),
-                    title: new TextFormField(
-                      controller: controllerNivel,
-                          validator: (value) {
-                            if (value.isEmpty) return "Ingresa un Nivel";
-                          },
-                      decoration: new InputDecoration(
-                        hintText: "Nivel", labelText: "Nivel",
-                      ),
-                    ),
-                  ),
-                  const Divider(
-                    height: 1.0,
-                  ),                 
+                 Row(
+                   children: <Widget>[
+                     new Container(
+                       margin: EdgeInsets.only(left: 20.0),
+                        child: Icon(Icons.list),
+                     ),
+                     VerticalDivider(width: 40.0,),
+                     new Container(                   
+                       //margin: EdgeInsets.only(right: 80.0),
+                       height: 50.0,
+                       width: 100.0,
+                      child: new DropdownButton<String>(
+                            isDense: true,
+                            hint: new Text("Nivel"),
+                            iconSize: 40.0,
+                            elevation: 10,
+                            value: _mySelection,
+                            onChanged: (String newValue) {
+                              setState(() {
+                                _mySelection = newValue;
+                              });
+                              print (_mySelection);
+                            },
+                            items: _myJson.map((Map map) {
+                              return new DropdownMenuItem<String>(
+                                //value: map["id"].toString(),
+                                value: map["name"].toString(),
+                                child: new Text(
+                                  map["name"],
+                                ),
+                              );
+                            }).toList(),
+                         ),
+                     ),
+                   ],
+                 ),
+                  new Padding(
+                   padding: const EdgeInsets.all(30.0),
+                 ),              
                   new RaisedButton(
                     child: new Text("Agregar"),
                     color: Colors.blueAccent,
