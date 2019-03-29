@@ -1,6 +1,12 @@
 # tienda_app_flutter
 
-A new Flutter project.
+![Codigo Alpha Flutter]
+
+![alt text](https://github.com/codigoalphacol/tiendaFlutterMysql/blob/master/assets/images/loginmascrudmysluno.png) 
+
+Los invitamos para que se suscriban en el canal codigo Alpha flutter en Youtube
+
+https://www.youtube.com/watch?v=kwZeCZr8Axs
 
 ## Getting Started
 
