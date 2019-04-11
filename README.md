@@ -1,5 +1,8 @@
 # tienda_app_flutter
 
+In the file store.zip are all the php files of the connection and the CRUD, if you use xampp you must unzip this file in the path:
+C: \ xampp \ htdocs \ my_store
+
 ![Codigo Alpha Flutter]
 
 ![alt text](https://github.com/codigoalphacol/tiendaFlutterMysql/blob/master/assets/images/loginmascrudmysluno.png) 
