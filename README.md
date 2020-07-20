@@ -1,4 +1,27 @@
 # tienda_app_flutter
+Solution black screen login
+Solution black screen login
+solucion pantalla negra Login
+codigo de la parte de login.php
+
+
+ if(isset($_POST['username']))
+    {
+        $username=$_POST['username'];
+        if(isset($_POST['password']))
+        {
+            $password=$_POST['password'];
+            $consultar=$connect->query("SELECT * FROM users WHERE username='".$username."' and password='".$password."'");
+            $resultado=array();
+        
+            while($extraerDatos=$consultar->fetch_assoc()){
+                $resultado[]=$extraerDatos;
+            }
+        
+            echo json_encode($resultado);
+        
+        }
+//y funciona correctamente aporte comentarios de Miguel en el canal de Youtube.
 
 In the file store.zip are all the php files of the connection and the CRUD, if you use xampp you must unzip this file in the path:
 C: \ xampp \ htdocs \ my_store
