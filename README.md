@@ -3,6 +3,16 @@ Solution black screen login
 Solution black screen login
 solucion pantalla negra Login
 codigo de la parte de login.php
+//solucion pantalla negrea , black screen solution
+Para los que tienen el problema de la pantalla negra 
+
+You basically remove the line
+Navigator.pop (context); found in the onPressed button to enter.
+Yare's contribution to the channel
+
+Básicamente eliminas la linea 
+Navigator.pop(context); que se encuentra en el onPressed del boton para ingresar.
+Aporte de Yare en el canal
 
 
  if(isset($_POST['username']))
